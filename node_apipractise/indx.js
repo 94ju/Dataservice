@@ -11,8 +11,10 @@ app.get('/statetocode',async(req,res)=>{
     res.send(console.log(jsonobject));
 });
 
-app.get('/codetostate',(req,res)=>{
-    res.send(console.log("its working"));
+app.get('/codetostate',async(req,res)=>{
+    const codetostateData = await fetch(codetostateUrl);
+    const jsonobject=await codetostateData.json();
+    res.send(console.log(jsonobject));
 })
 
 app.listen(3000);
