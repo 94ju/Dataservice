@@ -3,6 +3,10 @@ const app=express();
 const fetch=require("node-fetch");
 
 
+app.get('/',(req,res)=>{
+    res.send('Hello from data service');
+});
+
 app.get('/statetocode/:state',async(req,res)=>{
     const state= req.params.state;
     const stateset=await fetch('http://localhost:3000/getstate');
